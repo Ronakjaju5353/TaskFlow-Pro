@@ -110,7 +110,7 @@ export default function ReportsPage() {
       </div>
 
       {/* Summary Cards */}
-      <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
         <div className="flex items-center gap-3 rounded-lg border-l-4 border-l-blue-600 bg-white p-4 shadow-md">
           <div className="rounded-lg bg-blue-50 p-2">
             <CheckCircle className="h-5 w-5 text-blue-600" />

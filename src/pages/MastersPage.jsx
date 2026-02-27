@@ -147,24 +147,24 @@ export default function MastersPage() {
           <table className="w-full text-left">
             <thead>
               <tr className="border-b border-gray-200 bg-gray-50">
-                <th className="px-6 py-3 text-xs font-semibold uppercase tracking-wider text-gray-500">#</th>
-                {columns.map((col) => (
+                <th className="px-3 sm:px-6 py-3 text-xs font-semibold uppercase tracking-wider text-gray-500 hidden sm:table-cell">#</th>
+                {columns.map((col, colIdx) => (
                   <th
                     key={col}
-                    className="px-6 py-3 text-xs font-semibold uppercase tracking-wider text-gray-500"
+                    className={`px-3 sm:px-6 py-3 text-xs font-semibold uppercase tracking-wider text-gray-500 ${colIdx > 1 && colIdx < columns.length - 1 ? 'hidden md:table-cell' : ''}`}
                   >
                     {col}
                   </th>
                 ))}
-                <th className="px-6 py-3 text-xs font-semibold uppercase tracking-wider text-gray-500">Actions</th>
+                <th className="px-3 sm:px-6 py-3 text-xs font-semibold uppercase tracking-wider text-gray-500">Actions</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-100">
               {items.map((item, idx) => (
                 <tr key={item.id} className={`transition-colors hover:bg-blue-50/50 ${idx % 2 === 0 ? 'bg-white' : 'bg-gray-50/50'}`}>
-                  <td className="px-6 py-3 text-sm text-gray-500">{idx + 1}</td>
-                  {columns.map((col) => (
-                    <td key={col} className="px-6 py-3 text-sm text-gray-700">
+                  <td className="px-3 sm:px-6 py-3 text-sm text-gray-500 hidden sm:table-cell">{idx + 1}</td>
+                  {columns.map((col, colIdx) => (
+                    <td key={col} className={`px-3 sm:px-6 py-3 text-sm text-gray-700 ${colIdx > 1 && colIdx < columns.length - 1 ? 'hidden md:table-cell' : ''}`}>
                       {isStatusField(col) ? (
                         <span className={`inline-block rounded-full px-3 py-1 text-xs font-medium ${statusBadge(item[col])}`}>
                           {item[col]}
@@ -174,7 +174,7 @@ export default function MastersPage() {
                       )}
                     </td>
                   ))}
-                  <td className="px-6 py-3">
+                  <td className="px-3 sm:px-6 py-3">
                     <div className="flex items-center gap-2">
                       <button
                         onClick={() => openEdit(item)}
